@@ -24,6 +24,7 @@ public class IPokedexTest {
         Pokemon pokemon = PokedexObjectFactory.createPokemon(1, "Bulbasaur", 126, 126, 90, 500, 60, 3000, 3, 0.85);
 
         when(pokedex.addPokemon(pokemon)).thenReturn(1);
+
         assertEquals(1, pokedex.addPokemon(pokemon));
         assertEquals(0, pokedex.getPokemons().size());
     }
@@ -51,6 +52,14 @@ public class IPokedexTest {
         when(pokedex.getPokemon(1)).thenReturn(pokemon);
 
         assertEquals("Bulbasaur", pokedex.getPokemon(1).getName());
+        assertEquals(pokemon.getCp(), pokedex.getPokemon(1).getCp());
+        assertEquals(pokemon.getDefense(), pokedex.getPokemon(1).getDefense());
+        assertEquals(pokemon.getHp(), pokedex.getPokemon(1).getHp());
+        assertEquals(pokemon.getCandy(), pokedex.getPokemon(1).getCandy());
+        assertEquals(pokemon.getIndex(), pokedex.getPokemon(1).getIndex());
+        assertEquals(pokemon.getStamina(), pokedex.getPokemon(1).getStamina());
+        assertEquals(pokemon.getDust(), pokedex.getPokemon(1).getDust());
+        assertEquals(pokemon.getIv(), pokedex.getPokemon(1).getIv());
     }
 
     @Test
@@ -65,6 +74,7 @@ public class IPokedexTest {
         assertEquals(2, pokedex.getPokemons().size());
         assertEquals("Bulbasaur", pokedex.getPokemons().get(0).getName());
         assertEquals(125, pokedex.getPokemons().get(1).getAttack());
+        assertEquals(100, pokedex.getPokemons().get(1).getStamina());
     }
 
     @Test

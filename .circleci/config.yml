@@ -24,10 +24,23 @@ jobs:
       - run:
           name: Build
           command: mvn -B -DskipTests clean package
+
       # Then run your tests!
       - run:
           name: Test
           command: mvn test
+
+      # Generate the JaCoCo report after running the tests.
+      - run:
+          name: Generate Code Coverage Report
+          command: mvn jacoco:report
+
+      # Upload the coverage report to Codecov.
+      - run:
+          name: Upload to Codecov
+          command: bash <(curl -s https://codecov.io/bash)
+          environment:
+            - CODECOV_TOKEN: $CODECOV_TOKEN  # Your token is added automatically here
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/workflows/ & https://circleci.com/docs/configuration-reference/#workflows
