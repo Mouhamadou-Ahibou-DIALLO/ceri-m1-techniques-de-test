@@ -1,5 +1,7 @@
 package fr.univavignon.pokedex.api;
 
+import java.util.Comparator;
+
 import static org.mockito.Mockito.*;
 
 public class PokedexObjectFactory {
