@@ -64,4 +64,14 @@ public class PokemonMetadata {
 		return stamina;
 	}
 
+	@Override
+	public String toString() {
+		return "PokemonMetadata{" +
+				"index=" + index +
+				", name='" + name + '\'' +
+				", attack=" + attack +
+				", defense=" + defense +
+				", stamina=" + stamina +
+				'}';
+	}
 }

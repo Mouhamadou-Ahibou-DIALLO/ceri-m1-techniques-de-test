@@ -43,5 +43,13 @@ public class PokemonTrainer {
 	public IPokedex getPokedex() {
 		return pokedex;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "PokemonTrainer{" +
+				"name='" + name + '\'' +
+				", team=" + team +
+				", pokedex=" + pokedex +
+				'}';
+	}
 }

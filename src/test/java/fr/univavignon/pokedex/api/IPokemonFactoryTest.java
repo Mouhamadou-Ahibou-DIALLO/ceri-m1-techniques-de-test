@@ -8,7 +8,7 @@ import static org.mockito.Mockito.*;
 public class IPokemonFactoryTest {
 
     @Test
-    public void testCreateValidPokemon() {
+    public void testCreateValidPokemon() throws PokedexException  {
         IPokemonFactory iPokemonFactory = PokedexObjectFactory.createMockPokemonFactory();
         Pokemon pokemon = new Pokemon(1, "Bulbasaur", 126, 126, 90, 500, 60, 3000, 3, 0.85);
 
@@ -19,7 +19,7 @@ public class IPokemonFactoryTest {
     }
 
     @Test
-    public void testCreateInvalidPokemon() {
+    public void testCreateInvalidPokemon() throws PokedexException {
         IPokemonFactory iPokemonFactory = PokedexObjectFactory.createMockPokemonFactory();
 
         when(iPokemonFactory.createPokemon(25, 50, 60, 3000, 3)).thenReturn(null);
