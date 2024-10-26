@@ -21,7 +21,8 @@ public class PokemonFactory implements IPokemonFactory {
     }
 
     @Override
-    public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) throws PokedexException {
+    public Pokemon createPokemon(int index, int cp, int hp, int dust,
+                                 int candy) throws PokedexException {
         PokemonMetadata metadata = pokemonMetadataObject.getPokemonMetadata(index);
         String name = metadata.getName();
         int attack = metadata.getAttack();
@@ -29,6 +30,7 @@ public class PokemonFactory implements IPokemonFactory {
         int stamina = metadata.getStamina();
         double iv = calculateIv(index);
         System.out.println(iv + "% iv");
-        return new Pokemon(index, name, attack, defense, stamina, cp, hp, dust, candy, iv);
+        return new Pokemon(index, name, attack, defense, stamina,
+                cp, hp, dust, candy, iv);
     }
 }
