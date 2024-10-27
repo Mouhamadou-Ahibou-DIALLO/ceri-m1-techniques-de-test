@@ -46,6 +46,7 @@ Si vous ne spécifiez pas de tag, le dernier commit à la date-heure de la fin d
 
 **Badge pour CircleCI : [![CircleCI](https://dl.circleci.com/status-badge/img/gh/Ahibou2017/ceri-m1-techniques-de-test/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/Ahibou2017/ceri-m1-techniques-de-test/tree/master)
 **Badge pour CodeCov : [![codecov](https://codecov.io/github/Ahibou2017/ceri-m1-techniques-de-test/graph/badge.svg?token=KIJV7XHK4O)](https://codecov.io/github/Ahibou2017/ceri-m1-techniques-de-test)
+**Badge pour Codacy après intégration de checkstyle : [![Codacy Badge](https://app.codacy.com/project/badge/Grade/5d2d947729c84a80a6afad5716c8261e)](https://app.codacy.com/gh/Mouhamadou-Ahibou-DIALLO/ceri-m1-techniques-de-test/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 
 ## Choix techniques
