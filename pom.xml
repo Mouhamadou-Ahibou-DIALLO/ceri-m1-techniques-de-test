@@ -108,7 +108,15 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-checkstyle-plugin</artifactId>
-                    <version>3.1.2</version>
+                    <version>3.2.0</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>com.puppycrawl.tools</groupId>
+                            <artifactId>checkstyle</artifactId>
+                            <version>10.12.1</version>
+                            <type>jar</type>
+                        </dependency>
+                    </dependencies>
                     <configuration>
                         <configLocation>checkstyle.xml</configLocation>
                         <outputDirectory>${project.build.directory}/checkstyle-reports</outputDirectory>
@@ -123,6 +131,19 @@
                         </execution>
                     </executions>
                 </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>javadoc</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 
             </plugins>
 

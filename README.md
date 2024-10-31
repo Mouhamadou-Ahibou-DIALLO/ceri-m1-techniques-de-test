@@ -53,5 +53,5 @@ Si vous ne spécifiez pas de tag, le dernier commit à la date-heure de la fin d
 
 Pour ce projet, nous avons utilisé **JUnit** pour les tests unitaires et **Mockito** pour simuler les dépendances. 
 Nous avons intégré **CircleCI** pour l'intégration continue et **JaCoCo** pour mesurer la couverture de test, 
-avec publication des résultats sur **Codecov**.
+avec publication des résultats sur **Codecov**. AInsi que **Checkstyle** pour mesurer la qualité du code.
 

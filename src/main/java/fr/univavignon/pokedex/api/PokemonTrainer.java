@@ -30,21 +30,38 @@ public class PokemonTrainer {
 		this.pokedex = pokedex;
 	}
 	
-	/** Name getter. **/
+	/**
+	 * Returns the name of this trainer.
+	 *
+	 * @return Name of this trainer.
+	 */
 	public String getName() {
 		return name;
 	}
 
-	/** Team getter. **/
+	/**
+	 * Returns the team of this trainer.
+	 *
+	 * @return Team of this trainer.
+	 */
 	public Team getTeam() {
 		return team;
 	}
 	
-	/** Pokedex getter. **/
+	/**
+	 * Returns the pokedex of this trainer.
+	 *
+	 * @return Pokedex of this trainer.
+	 */
 	public IPokedex getPokedex() {
 		return pokedex;
 	}
 
+	/**
+	 * Returns a string representation of this PokemonTrainer.
+	 *
+	 * @return A string representation of this PokemonTrainer.
+	 */
 	@Override
 	public String toString() {
 		return "PokemonTrainer{" +

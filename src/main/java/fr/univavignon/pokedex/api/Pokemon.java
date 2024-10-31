@@ -55,27 +55,47 @@ public final class Pokemon extends PokemonMetadata {
 		this.iv = iv;
 	}
 
-	/** Combat Point getter getter. **/
+	/**
+	 * Returns the combat point of this pokemon.
+	 *
+	 * @return Combat point of this pokemon.
+	 */
 	public int getCp() {
 		return cp;
 	}
 	
-	/** HP getter. **/
+	/**
+	 * Returns the hit points of this pokemon.
+	 *
+	 * @return Hit points of this pokemon.
+	 */
 	public int getHp() {
 		return hp;
 	}
 
-	/** Dust getter. **/
+	/**
+	 * Returns the required dust for upgrading this pokemon.
+	 *
+	 * @return Dust required for upgrading this pokemon.
+	 */
 	public int getDust() {
 		return dust;
 	}
 
-	/** Candy getter. **/
+	/**
+	 * Returns the required candy for upgrading this pokemon.
+	 *
+	 * @return Candy required for upgrading this pokemon.
+	 */
 	public int getCandy() {
 		return candy;
 	}
 	
-	/** IV getter. **/
+	/**
+	 * Returns the IV perfection percentage of this pokemon.
+	 *
+	 * @return IV perfection percentage of this pokemon.
+	 */
 	public double getIv() {
 		return iv;
 	}

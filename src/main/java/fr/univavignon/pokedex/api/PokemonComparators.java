@@ -1,6 +1,7 @@
 package fr.univavignon.pokedex.api;
 
 import java.util.Comparator;
+import java.util.List;
 
 /**
  * Enumeration of pokemon comparator.
@@ -32,11 +33,27 @@ public enum PokemonComparators implements Comparator<Pokemon> {
 		this.delegate = delegate;
 	}
 
-	/** {@inheritDoc} **/
+	/**
+	 * Compares two Pokemon instances using the underlying comparator.
+	 *
+	 * @param first  First Pokemon to compare.
+	 * @param second Second Pokemon to compare.
+	 * @return Result of the comparison.
+	 */
 	@Override
 	public int compare(final Pokemon first, final Pokemon second) {
-		
+
 		return delegate.compare(first, second);
+	}
+
+	/**
+	 * Returns an unmodifiable list of all comparators available.
+	 *
+	 * @return List of all comparators available.
+	 */
+	public static List<PokemonComparators> getComparators() {
+
+		return List.copyOf(List.of(values()));
 	}
 
 }
