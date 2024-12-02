@@ -12,13 +12,32 @@ import java.util.Random;
 public class RocketPokemonFactoryAmeliorateVersion
         implements IPokemonFactory {
 
-    private static final Map<Integer, String> index2name
-            = initializeIndexToName();
+    /**
+     * Mapping of Pokémon indices to their respective names.
+     * <p>
+     * This mapping is used to determine the name of a Pokémon when it is
+     * created using the factory.
+     */
+    private static final Map<Integer, String> index2name = initializeIndexToName();
+
+    /**
+     * Random number generator used to generate random statistics for
+     * Pokémon.
+     */
     private static final Random RANDOM = new Random();
+
+    /**
+     * Maximum value for a random stat.
+     * <p>
+     * This value is used to ensure that the stats generated for a Pokémon
+     * are within a reasonable range.
+     */
     private static final int MAX_RANDOM_STAT = 200;
 
     /**
      * Initializes the index-to-name mapping for Pokémon.
+     *
+     * @return A mapping of Pokémon indices to their respective names.
      */
     private static Map<Integer, String> initializeIndexToName() {
         Map<Integer, String> map = new HashMap<>();
