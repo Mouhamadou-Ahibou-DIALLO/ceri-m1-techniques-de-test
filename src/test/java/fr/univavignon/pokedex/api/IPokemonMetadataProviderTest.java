@@ -29,4 +29,20 @@ public class IPokemonMetadataProviderTest {
             metadataProvider.getPokemonMetadata(999);
         });
     }
+
+    @Test
+    public void testEuqalsAndHashcode() {
+        PokemonMetadata metadata = PokedexObjectFactory.createPokemonMetadata(1, "Bulbasaur", 126, 126, 90);
+        PokemonMetadata metadata1 = PokedexObjectFactory.createPokemonMetadata(1, "Bulbasaur", 126, 126, 90);
+
+        assertTrue(metadata.equals(metadata1));
+        assertEquals(metadata.hashCode(), metadata1.hashCode());
+
+        assertFalse(metadata.equals(null));
+        assertTrue(metadata.getIndex() == metadata1.getIndex());
+        assertTrue(metadata.getName().equals(metadata1.getName()));
+        assertTrue(metadata.getDefense() == metadata1.getDefense());
+        assertTrue(metadata.getStamina() == metadata1.getStamina());
+        assertTrue(metadata.getAttack() == metadata1.getAttack());
+    }
 }

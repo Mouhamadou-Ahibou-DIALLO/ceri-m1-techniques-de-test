@@ -16,6 +16,9 @@ public class IPokemonTrainerFactoryTest {
         when(pokemonTrainerFactory.createTrainer("Momo", Team.INSTINCT, pokedexFactory)).thenReturn(pokemonTrainer);
 
         assertEquals("Momo", pokemonTrainer.getName());
+        assertEquals(pokemonTrainer.toString(), "PokemonTrainer{" + "name='"
+                + pokemonTrainer.getName() + '\'' + ", team=" + pokemonTrainer.getTeam() +
+                ", pokedex=" + pokemonTrainer.getPokedex() + '}');
     }
 
     @Test

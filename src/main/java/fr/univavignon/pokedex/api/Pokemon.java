@@ -1,5 +1,7 @@
 package fr.univavignon.pokedex.api;
 
+import java.util.Objects;
+
 /**
  * Pokemon POJO.
  * 
@@ -99,5 +101,28 @@ public final class Pokemon extends PokemonMetadata {
 	public double getIv() {
 		return iv;
 	}
-	
+
+	@Override
+	public String toString() {
+		return super.toString() + ", Pokemon{cp=" + this.cp + ", hp=" + this.hp +
+				", dust=" + this.dust + ", candy=" + this.candy + ", iv="
+				+ this.iv + "}";
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Pokemon that = (Pokemon) o;
+		return this.cp == that.cp &&
+				this.hp == that.hp &&
+				Double.compare(that.iv, this.iv) == 0 &&
+				this.dust == that.dust &&
+				this.candy == that.candy;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(cp, hp, iv, dust, candy);
+	}
 }

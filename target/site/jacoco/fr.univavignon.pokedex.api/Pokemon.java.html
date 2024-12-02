@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Pokemon.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Principe_De_Test</a> &gt; <a href="index.source.html" class="el_package">fr.univavignon.pokedex.api</a> &gt; <span class="el_source">Pokemon.java</span></div><h1>Pokemon.java</h1><pre class="source lang-java linenums">package fr.univavignon.pokedex.api;
 
+import java.util.Objects;
+
 /**
  * Pokemon POJO.
  * 
@@ -47,38 +49,81 @@ public final class Pokemon extends PokemonMetadata {
 			final int dust,
 			final int candy,
 			final double iv) {
-<span class="fc" id="L50">		super(index, name, attack, defense, stamina);</span>
-<span class="fc" id="L51">		this.cp = cp;</span>
-<span class="fc" id="L52">		this.hp = hp;</span>
-<span class="fc" id="L53">		this.dust = dust;</span>
-<span class="fc" id="L54">		this.candy = candy;</span>
-<span class="fc" id="L55">		this.iv = iv;</span>
-<span class="fc" id="L56">	}</span>
+<span class="fc" id="L52">		super(index, name, attack, defense, stamina);</span>
+<span class="fc" id="L53">		this.cp = cp;</span>
+<span class="fc" id="L54">		this.hp = hp;</span>
+<span class="fc" id="L55">		this.dust = dust;</span>
+<span class="fc" id="L56">		this.candy = candy;</span>
+<span class="fc" id="L57">		this.iv = iv;</span>
+<span class="fc" id="L58">	}</span>
 
-	/** Combat Point getter getter. **/
+	/**
+	 * Returns the combat point of this pokemon.
+	 *
+	 * @return Combat point of this pokemon.
+	 */
 	public int getCp() {
-<span class="fc" id="L60">		return cp;</span>
+<span class="fc" id="L66">		return cp;</span>
 	}
 	
-	/** HP getter. **/
+	/**
+	 * Returns the hit points of this pokemon.
+	 *
+	 * @return Hit points of this pokemon.
+	 */
 	public int getHp() {
-<span class="fc" id="L65">		return hp;</span>
+<span class="fc" id="L75">		return hp;</span>
 	}
 
-	/** Dust getter. **/
+	/**
+	 * Returns the required dust for upgrading this pokemon.
+	 *
+	 * @return Dust required for upgrading this pokemon.
+	 */
 	public int getDust() {
-<span class="fc" id="L70">		return dust;</span>
+<span class="fc" id="L84">		return dust;</span>
 	}
 
-	/** Candy getter. **/
+	/**
+	 * Returns the required candy for upgrading this pokemon.
+	 *
+	 * @return Candy required for upgrading this pokemon.
+	 */
 	public int getCandy() {
-<span class="fc" id="L75">		return candy;</span>
+<span class="fc" id="L93">		return candy;</span>
 	}
 	
-	/** IV getter. **/
+	/**
+	 * Returns the IV perfection percentage of this pokemon.
+	 *
+	 * @return IV perfection percentage of this pokemon.
+	 */
 	public double getIv() {
-<span class="fc" id="L80">		return iv;</span>
+<span class="fc" id="L102">		return iv;</span>
 	}
-	
+
+	@Override
+	public String toString() {
+<span class="fc" id="L107">		return super.toString() + &quot;, Pokemon{cp=&quot; + this.cp + &quot;, hp=&quot; + this.hp +</span>
+				&quot;, dust=&quot; + this.dust + &quot;, candy=&quot; + this.candy + &quot;, iv=&quot;
+				+ this.iv + &quot;}&quot;;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+<span class="fc bfc" id="L114" title="All 2 branches covered.">		if (this == o) return true;</span>
+<span class="pc bpc" id="L115" title="1 of 4 branches missed.">		if (o == null || getClass() != o.getClass()) return false;</span>
+<span class="fc" id="L116">		Pokemon that = (Pokemon) o;</span>
+<span class="pc bpc" id="L117" title="2 of 4 branches missed.">		return this.cp == that.cp &amp;&amp;</span>
+				this.hp == that.hp &amp;&amp;
+<span class="pc bpc" id="L119" title="3 of 6 branches missed.">				Double.compare(that.iv, this.iv) == 0 &amp;&amp;</span>
+				this.dust == that.dust &amp;&amp;
+				this.candy == that.candy;
+	}
+
+	@Override
+	public int hashCode() {
+<span class="fc" id="L126">		return Objects.hash(cp, hp, iv, dust, candy);</span>
+	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

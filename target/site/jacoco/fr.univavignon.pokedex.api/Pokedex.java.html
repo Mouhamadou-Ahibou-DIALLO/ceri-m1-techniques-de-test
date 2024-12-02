@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Pokedex.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Principe_De_Test</a> &gt; <a href="index.source.html" class="el_package">fr.univavignon.pokedex.api</a> &gt; <span class="el_source">Pokedex.java</span></div><h1>Pokedex.java</h1><pre class="source lang-java linenums">package fr.univavignon.pokedex.api;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
+/**
+ * Pokedex class. A Pokedex aims to store all information about
+ * captured pokemon, as their default metadata as well.
+ *
+ * @author fv
+ */
+public class Pokedex implements IPokedex {
+
+    /** List of all pokemons in this pokedex. */
+<span class="fc" id="L16">    private List&lt;Pokemon&gt; pokemons = new ArrayList&lt;&gt;();</span>
+
+    /**
+     * Creates a new pokedex instance using the given
+     * &lt;code&gt;metadataProvider&lt;/code&gt; and &lt;code&gt;pokemonFactory&lt;/code&gt;.
+     */
+    private final IPokemonMetadataProvider pokemonMetadataProvider;
+
+    /** Number of pokemon in this pokedex. */
+<span class="fc" id="L25">    private static int SIZE = 0;</span>
+
+    /**
+     * Creates a new pokedex instance using the given
+     * &lt;code&gt;metadataProvider&lt;/code&gt; and &lt;code&gt;pokemonFactory&lt;/code&gt;.
+     */
+    private final IPokemonFactory pokemonFactory;
+
+    /**
+     * Creates a new pokedex instance using the given
+     * &lt;code&gt;pokemonMetadataProvider&lt;/code&gt; and &lt;code&gt;pokemonFactory&lt;/code&gt;.
+     *
+     * @param pokemonMetadataProvider Metadata provider the created pokedex will use.
+     * @param pokemonFactory Pokemon factory the created pokedex will use.
+     */
+    public Pokedex(IPokemonMetadataProvider pokemonMetadataProvider,
+<span class="fc" id="L41">                   IPokemonFactory pokemonFactory) {</span>
+<span class="fc" id="L42">        this.pokemonMetadataProvider = pokemonMetadataProvider;</span>
+<span class="fc" id="L43">        this.pokemonFactory = pokemonFactory;</span>
+<span class="fc" id="L44">    }</span>
+
+    /**
+     * Returns the number of pokemon this pokedex contains.
+     *
+     * @return Number of pokemon in this pokedex.
+     */
+    @Override
+    public int size() {
+<span class="fc" id="L53">        return SIZE;</span>
+    }
+
+    /**
+     * Adds the given &lt;code&gt;pokemon&lt;/code&gt; to this pokedex and returns
+     * it unique index.
+     *
+     * @param pokemon Pokemon to add to this pokedex.
+     * @return Index of this pokemon relative to this pokedex.
+     */
+    @Override
+    public int addPokemon(Pokemon pokemon) {
+<span class="fc" id="L65">        pokemons.add(pokemon);</span>
+<span class="fc" id="L66">        System.out.println(pokemons.size() + &quot; ::: size&quot;);</span>
+<span class="fc" id="L67">        SIZE++;</span>
+<span class="fc" id="L68">        return pokemon.getIndex();</span>
+    }
+
+    /**
+     * Locates the pokemon identified by the given &lt;code&gt;id&lt;/code&gt;.
+     *
+     * @param id Unique pokedex relative identifier.
+     * @return Pokemon denoted by the given identifier.
+     * @throws PokedexException If the given &lt;code&gt;id&lt;/code&gt; is not valid.
+     */
+    @Override
+    public Pokemon getPokemon(int id) throws PokedexException {
+<span class="fc bfc" id="L80" title="All 2 branches covered.">        for (Pokemon pokemon : pokemons) {</span>
+<span class="fc bfc" id="L81" title="All 2 branches covered.">            if (pokemon.getIndex() == id) {</span>
+<span class="fc" id="L82">                return pokemon;</span>
+            }
+<span class="fc" id="L84">        }</span>
+<span class="fc" id="L85">        throw new PokedexException(&quot;Pokemon not found with id: &quot; + id);</span>
+    }
+
+    /**
+     * Returns an unmodifiable list of all pokemons this pokedex contains.
+     *
+     * @return Unmodifiable list of all pokemons.
+     */
+    @Override
+    public List&lt;Pokemon&gt; getPokemons() {
+<span class="fc" id="L95">        return List.copyOf(pokemons);</span>
+    }
+
+    /**
+     * Returns an unmodifiable list of all pokemons this pokedex contains.
+     * The list is sorted according to the given comparator.
+     *
+     * @param order Comparator instance used for sorting the created view.
+     * @return Sorted unmodifiable list of all pokemons.
+     */
+    @Override
+    public List&lt;Pokemon&gt; getPokemons(Comparator&lt;Pokemon&gt; order) {
+<span class="fc" id="L107">        return pokemons.stream().sorted(order).toList();</span>
+    }
+
+    /**
+     * Creates a pokemon instance with the given parameters.
+     *
+     * @param index Pokemon index.
+     * @param cp Pokemon CP (Combat Points).
+     * @param hp Pokemon HP (Hit Points).
+     * @param dust Required dust for upgrading pokemon.
+     * @param candy Required candy for upgrading pokemon.
+     * @return Created pokemon instance.
+     * @throws PokedexException If the given &lt;code&gt;index&lt;/code&gt; is not valid.
+     */
+    @Override
+    public Pokemon createPokemon(int index, int cp, int hp, int dust,
+                                 int candy) throws PokedexException {
+<span class="fc" id="L124">        return pokemonFactory.createPokemon(index, cp, hp, dust, candy);</span>
+    }
+
+    /**
+     * Retrieves and returns the metadata provider associated with this
+     * pokedex instance.
+     *
+     * @return Metadata provider associated with this pokedex instance.
+     */
+    @Override
+    public IPokemonMetadataProvider getPokemonMetadataProvider() {
+<span class="fc" id="L135">        return pokemonMetadataProvider;</span>
+    }
+
+    /**
+     * Retrieves and returns the factory instance associated with this
+     * pokedex instance and used for creating pokemon instances.
+     *
+     * @return Factory instance associated with this pokedex instance.
+     */
+    @Override
+    public IPokemonFactory getPokemonFactory() {
+<span class="fc" id="L146">        return pokemonFactory;</span>
+    }
+
+    /**
+     * Retrieves and returns the metadata for the pokemon denoted by the given
+     * &lt;code&gt;index&lt;/code&gt;.
+     *
+     * @param index Index of the pokemon to retrieve metadata for.
+     * @return Metadata of the pokemon.
+     * @throws PokedexException If the given &lt;code&gt;index&lt;/code&gt; is not valid.
+     */
+    @Override
+    public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
+<span class="fc" id="L159">        return pokemonMetadataProvider.getPokemonMetadata(index);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

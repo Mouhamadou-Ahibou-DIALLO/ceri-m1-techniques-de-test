@@ -1,5 +1,7 @@
 package fr.univavignon.pokedex.api;
 
+import java.util.Objects;
+
 /**
  * Pokemon metadata POJO.
  * 
@@ -99,4 +101,40 @@ public class PokemonMetadata {
 				", stamina=" + stamina +
 				'}';
 	}
+
+	/**
+	 * @param obj Object to compare with.
+	 * @return True if the given object is equal to this PokemonMetadata.
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) return true;
+		if (obj == null || getClass() != obj.getClass()) return false;
+		PokemonMetadata that = (PokemonMetadata) obj;
+
+		boolean indexEquals = index == that.index;
+		boolean attackEquals = attack == that.attack;
+		boolean defenseEquals = defense == that.defense;
+		boolean staminaEquals = stamina == that.stamina;
+		boolean nameEquals = Objects.equals(name, that.name);
+
+		return indexEquals &&
+				attackEquals &&
+				defenseEquals &&
+				staminaEquals &&
+				nameEquals;
+	}
+
+	/**
+	 * Returns the hash code value for this PokemonMetadata.
+	 * This hash code is used for storing and retrieving PokemonMetadata
+	 * in a hash-based data structure.
+	 *
+	 * @return The hash code value for this PokemonMetadata.
+	 */
+	@Override
+	public int hashCode() {
+		return Objects.hash(index, name, attack, defense, stamina);
+	}
+
 }

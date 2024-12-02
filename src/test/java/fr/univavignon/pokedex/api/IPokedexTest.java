@@ -1,6 +1,8 @@
 package fr.univavignon.pokedex.api;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -75,6 +77,9 @@ public class IPokedexTest {
         assertEquals("Bulbasaur", pokedex.getPokemons().get(0).getName());
         assertEquals(125, pokedex.getPokemons().get(1).getAttack());
         assertEquals(100, pokedex.getPokemons().get(1).getStamina());
+
+        assertEquals("PokemonMetadata{index=1, name='Bulbasaur', attack=126, defense=126, stamina=90}, Pokemon{cp=2000, hp=60, dust=3000, candy=3, iv=0.85}",
+                pokedex.getPokemons().get(0).toString());
     }
 
     @Test
@@ -92,5 +97,21 @@ public class IPokedexTest {
 
         assertEquals(2, retrievedPokemons.size());
         assertEquals(sortedListPokemons, retrievedPokemons);
+    }
+
+    @Test
+    public void testEqualsAndHashCode() {
+        Pokemon pokemon1 = new Pokemon(1, "Bulbasaur", 118, 118, 90, 100, 50, 200, 10, 0.8);
+        Pokemon pokemon2 = new Pokemon(1, "Bulbasaur", 118, 118, 90, 100, 50, 200, 10, 0.8);
+
+        assertTrue(pokemon1.equals(pokemon2));
+        assertEquals(pokemon1.hashCode(), pokemon2.hashCode());
+
+        assertFalse(pokemon1.equals(null));
+        assertTrue(pokemon1.getIndex() == pokemon2.getIndex());
+        assertTrue(pokemon1.getName().equals(pokemon2.getName()));
+        assertTrue(pokemon1.getDefense() == pokemon2.getDefense());
+        assertTrue(pokemon1.getStamina() == pokemon2.getStamina());
+        assertTrue(pokemon1.getAttack() == pokemon2.getAttack());
     }
 }

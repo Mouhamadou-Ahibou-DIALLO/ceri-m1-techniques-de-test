@@ -10,7 +10,7 @@ public class PokemonFactory implements IPokemonFactory {
     /**
      * Pokemon metadata object the created pokemon factory will use.
      */
-    private final PokemonMetadataObject pokemonMetadataObject;
+    private final IPokemonMetadataProvider pokemonMetadataProvider;
 
     /**
      * Maximum attack level of the pokemon.
@@ -29,29 +29,30 @@ public class PokemonFactory implements IPokemonFactory {
 
     /**
      * Creates a new pokemon factory using the given
-     * <code>pokemonMetadataObject</code>.
+     * <code>pokemonMetadataProvider</code>.
      *
-     * @param pokemonMetadataObject Pokemon metadata object the created
+     * @param pokemonMetadataProvider Pokemon metadata object the created
      * pokemon factory will use.
      */
-    public PokemonFactory(PokemonMetadataObject pokemonMetadataObject) {
-        this.pokemonMetadataObject = pokemonMetadataObject;
+    public PokemonFactory(IPokemonMetadataProvider pokemonMetadataProvider) {
+        this.pokemonMetadataProvider = pokemonMetadataProvider;
     }
 
     /**
      * Calculates the IV (Individual Value) perfection percentage for the pokemon
      * denoted by the given <code>index</code>.
      *
-     * @param index Index of the pokemon to calculate IV for.
+     * @param attack Attack level of the pokemon.
+     * @param defense Defense level of the pokemon.
+     * @param stamina Stamina level of the pokemon.
      * @return IV perfection percentage of the pokemon.
      * @throws PokedexException If the given <code>index</code> is not valid.
      */
-    private double calculateIv(int index) throws PokedexException {
-        PokemonMetadata metadata = pokemonMetadataObject.getPokemonMetadata(index);
+    private double calculateIv(int attack, int defense, int stamina) {
 
-        return (((double) metadata.getAttack() / MAX_ATTACK +
-                (double) metadata.getDefense() / MAX_DEFENSE +
-                (double) metadata.getStamina() / MAX_STAMINA) / 3.0) * 100;
+        return (((double) attack / MAX_ATTACK +
+                (double) defense / MAX_DEFENSE +
+                (double) stamina / MAX_STAMINA) / 3.0) * 100;
     }
 
     /**
@@ -68,14 +69,14 @@ public class PokemonFactory implements IPokemonFactory {
     @Override
     public Pokemon createPokemon(int index, int cp, int hp, int dust,
                                  int candy) throws PokedexException {
-        PokemonMetadata metadata = pokemonMetadataObject.getPokemonMetadata(index);
+        PokemonMetadata metadata = pokemonMetadataProvider.getPokemonMetadata(index);
 
         String name = metadata.getName();
         int attack = metadata.getAttack();
         int defense = metadata.getDefense();
         int stamina = metadata.getStamina();
 
-        double iv = calculateIv(index);
+        double iv = calculateIv(attack, defense, stamina);
         System.out.println(iv + "% iv");
         return new Pokemon(index, name, attack, defense, stamina,
                 cp, hp, dust, candy, iv);

@@ -9,7 +9,7 @@ public interface IPokemonFactory {
 
 	/**
 	 * Creates a pokemon instance computing it IVs.
-	 * 
+	 *
 	 * @param index Pokemon index.
 	 * @param cp Pokemon CP.
 	 * @param hp Pokemon HP.
@@ -20,5 +20,4 @@ public interface IPokemonFactory {
 	 */
 	Pokemon createPokemon(int index, int cp, int hp, int dust,
 						  int candy) throws PokedexException;
-	
 }

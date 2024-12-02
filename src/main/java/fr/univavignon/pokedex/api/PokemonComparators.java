@@ -45,15 +45,4 @@ public enum PokemonComparators implements Comparator<Pokemon> {
 
 		return delegate.compare(first, second);
 	}
-
-	/**
-	 * Returns an unmodifiable list of all comparators available.
-	 *
-	 * @return List of all comparators available.
-	 */
-	public static List<PokemonComparators> getComparators() {
-
-		return List.copyOf(List.of(values()));
-	}
-
 }

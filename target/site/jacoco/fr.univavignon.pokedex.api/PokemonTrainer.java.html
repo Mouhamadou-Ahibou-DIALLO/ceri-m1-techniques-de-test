@@ -23,26 +23,52 @@ public class PokemonTrainer {
 	 * @param team Trainer team.
 	 * @param pokedex Trainer pokedex.
 	 */
-<span class="fc" id="L26">	public PokemonTrainer(final String name, final Team team, final IPokedex pokedex) {</span>
-<span class="fc" id="L27">		this.name = name;</span>
-<span class="fc" id="L28">		this.team = team;</span>
-<span class="fc" id="L29">		this.pokedex = pokedex;</span>
-<span class="fc" id="L30">	}</span>
+	public PokemonTrainer(final String name, final Team team,
+<span class="fc" id="L27">						  final IPokedex pokedex) {</span>
+<span class="fc" id="L28">		this.name = name;</span>
+<span class="fc" id="L29">		this.team = team;</span>
+<span class="fc" id="L30">		this.pokedex = pokedex;</span>
+<span class="fc" id="L31">	}</span>
 	
-	/** Name getter. **/
+	/**
+	 * Returns the name of this trainer.
+	 *
+	 * @return Name of this trainer.
+	 */
 	public String getName() {
-<span class="fc" id="L34">		return name;</span>
+<span class="fc" id="L39">		return name;</span>
 	}
 
-	/** Team getter. **/
+	/**
+	 * Returns the team of this trainer.
+	 *
+	 * @return Team of this trainer.
+	 */
 	public Team getTeam() {
-<span class="fc" id="L39">		return team;</span>
+<span class="fc" id="L48">		return team;</span>
 	}
 	
-	/** Pokedex getter. **/
+	/**
+	 * Returns the pokedex of this trainer.
+	 *
+	 * @return Pokedex of this trainer.
+	 */
 	public IPokedex getPokedex() {
-<span class="fc" id="L44">		return pokedex;</span>
+<span class="fc" id="L57">		return pokedex;</span>
 	}
-	
+
+	/**
+	 * Returns a string representation of this PokemonTrainer.
+	 *
+	 * @return A string representation of this PokemonTrainer.
+	 */
+	@Override
+	public String toString() {
+<span class="fc" id="L67">		return &quot;PokemonTrainer{&quot; +</span>
+				&quot;name='&quot; + name + '\'' +
+				&quot;, team=&quot; + team +
+				&quot;, pokedex=&quot; + pokedex +
+				'}';
+	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

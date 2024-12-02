@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PokemonFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Principe_De_Test</a> &gt; <a href="index.source.html" class="el_package">fr.univavignon.pokedex.api</a> &gt; <span class="el_source">PokemonFactory.java</span></div><h1>PokemonFactory.java</h1><pre class="source lang-java linenums">package fr.univavignon.pokedex.api;
+
+/**
+ * Pokemon factory.
+ *
+ * @author fv
+ */
+public class PokemonFactory implements IPokemonFactory {
+
+    /**
+     * Pokemon metadata object the created pokemon factory will use.
+     */
+    private final IPokemonMetadataProvider pokemonMetadataProvider;
+
+    /**
+     * Maximum attack level of the pokemon.
+     */
+    private static final int MAX_ATTACK = 200;
+
+    /**
+     * Maximum defense level of the pokemon.
+     */
+    private static final int MAX_DEFENSE = 200;
+
+    /**
+     * Maximum stamina level of the pokemon.
+     */
+    private static final int MAX_STAMINA = 200;
+
+    /**
+     * Creates a new pokemon factory using the given
+     * &lt;code&gt;pokemonMetadataProvider&lt;/code&gt;.
+     *
+     * @param pokemonMetadataProvider Pokemon metadata object the created
+     * pokemon factory will use.
+     */
+<span class="fc" id="L37">    public PokemonFactory(IPokemonMetadataProvider pokemonMetadataProvider) {</span>
+<span class="fc" id="L38">        this.pokemonMetadataProvider = pokemonMetadataProvider;</span>
+<span class="fc" id="L39">    }</span>
+
+    /**
+     * Calculates the IV (Individual Value) perfection percentage for the pokemon
+     * denoted by the given &lt;code&gt;index&lt;/code&gt;.
+     *
+     * @param attack Attack level of the pokemon.
+     * @param defense Defense level of the pokemon.
+     * @param stamina Stamina level of the pokemon.
+     * @return IV perfection percentage of the pokemon.
+     * @throws PokedexException If the given &lt;code&gt;index&lt;/code&gt; is not valid.
+     */
+    private double calculateIv(int attack, int defense, int stamina) {
+
+<span class="fc" id="L53">        return (((double) attack / MAX_ATTACK +</span>
+                (double) defense / MAX_DEFENSE +
+                (double) stamina / MAX_STAMINA) / 3.0) * 100;
+    }
+
+    /**
+     * Creates a pokemon instance computing it IVs.
+     *
+     * @param index Pokemon index.
+     * @param cp Pokemon CP (Combat Points).
+     * @param hp Pokemon HP (Hit Points).
+     * @param dust Required dust for upgrading pokemon.
+     * @param candy Required candy for upgrading pokemon.
+     * @throws PokedexException If the given &lt;code&gt;index&lt;/code&gt; is not valid.
+     * @return Created pokemon instance.
+     */
+    @Override
+    public Pokemon createPokemon(int index, int cp, int hp, int dust,
+                                 int candy) throws PokedexException {
+<span class="fc" id="L72">        PokemonMetadata metadata = pokemonMetadataProvider.getPokemonMetadata(index);</span>
+
+<span class="fc" id="L74">        String name = metadata.getName();</span>
+<span class="fc" id="L75">        int attack = metadata.getAttack();</span>
+<span class="fc" id="L76">        int defense = metadata.getDefense();</span>
+<span class="fc" id="L77">        int stamina = metadata.getStamina();</span>
+
+<span class="fc" id="L79">        double iv = calculateIv(attack, defense, stamina);</span>
+<span class="fc" id="L80">        System.out.println(iv + &quot;% iv&quot;);</span>
+<span class="fc" id="L81">        return new Pokemon(index, name, attack, defense, stamina,</span>
+                cp, hp, dust, candy, iv);
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

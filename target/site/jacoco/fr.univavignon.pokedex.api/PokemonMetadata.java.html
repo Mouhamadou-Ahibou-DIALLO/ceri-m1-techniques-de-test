@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PokemonMetadata.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Principe_De_Test</a> &gt; <a href="index.source.html" class="el_package">fr.univavignon.pokedex.api</a> &gt; <span class="el_source">PokemonMetadata.java</span></div><h1>PokemonMetadata.java</h1><pre class="source lang-java linenums">package fr.univavignon.pokedex.api;
 
+import java.util.Objects;
+
 /**
  * Pokemon metadata POJO.
  * 
@@ -31,37 +33,108 @@ public class PokemonMetadata {
 	 * @param defense Defense level.
 	 * @param stamina Stamina level.
 	 */
-<span class="fc" id="L34">	public PokemonMetadata(final int index, final String name, final int attack, final int defense, final int stamina) {</span>
-<span class="fc" id="L35">		this.index = index;</span>
-<span class="fc" id="L36">		this.name = name;</span>
-<span class="fc" id="L37">		this.attack = attack;</span>
-<span class="fc" id="L38">		this.defense = defense;</span>
-<span class="fc" id="L39">		this.stamina = stamina;</span>
-<span class="fc" id="L40">	}</span>
+	public PokemonMetadata(final int index, final String name, final int attack,
+<span class="fc" id="L37">						   final int defense, final int stamina) {</span>
+<span class="fc" id="L38">		this.index = index;</span>
+<span class="fc" id="L39">		this.name = name;</span>
+<span class="fc" id="L40">		this.attack = attack;</span>
+<span class="fc" id="L41">		this.defense = defense;</span>
+<span class="fc" id="L42">		this.stamina = stamina;</span>
+<span class="fc" id="L43">	}</span>
 	
-	/** Index getter. **/
+	/**
+	 * Index getter.
+	 *
+	 * @return Index of the pokemon metadata.
+	 */
 	public int getIndex() {
-<span class="fc" id="L44">		return index;</span>
+<span class="fc" id="L51">		return index;</span>
 	}
 	
-	/** Name getter.**/
-	public String getName() {
-<span class="fc" id="L49">		return name;</span>
-	}
+	    /**
+     * Name getter.
+     *
+     * @return Name of the pokemon metadata.
+     */
+    public String getName() {
+<span class="fc" id="L60">        return name;</span>
+    }
 
-	/** Attack level getter. **/
-	public int getAttack() {
-<span class="fc" id="L54">		return attack;</span>
-	}
+	    /**
+     * Attack level getter.
+     *
+     * @return Attack level of the pokemon metadata.
+     */
+    public int getAttack() {
+<span class="fc" id="L69">        return attack;</span>
+    }
 
-	/** Defense level getter. **/
-	public int getDefense() {
-<span class="fc" id="L59">		return defense;</span>
-	}
+	    /**
+     * Defense level getter.
+     *
+     * @return Defense level of the pokemon metadata.
+     */
+    public int getDefense() {
+        // Return the defense level of the Pokemon
+<span class="fc" id="L79">        return defense;</span>
+    }
 
-	/** Stamina level getter. **/
+	/**
+	 * Stamina level getter.
+	 *
+	 * @return Stamina level of the pokemon metadata.
+	 */
 	public int getStamina() {
-<span class="fc" id="L64">		return stamina;</span>
+<span class="fc" id="L88">		return stamina;</span>
+	}
+
+	/**
+	 * @return A string representation of this PokemonMetadata.
+	 */
+	@Override
+	public String toString() {
+<span class="fc" id="L96">		return &quot;PokemonMetadata{&quot; +</span>
+				&quot;index=&quot; + index +
+				&quot;, name='&quot; + name + '\'' +
+				&quot;, attack=&quot; + attack +
+				&quot;, defense=&quot; + defense +
+				&quot;, stamina=&quot; + stamina +
+				'}';
+	}
+
+	/**
+	 * @param obj Object to compare with.
+	 * @return True if the given object is equal to this PokemonMetadata.
+	 */
+	@Override
+	public boolean equals(Object obj) {
+<span class="fc bfc" id="L111" title="All 2 branches covered.">		if (this == obj) return true;</span>
+<span class="pc bpc" id="L112" title="1 of 4 branches missed.">		if (obj == null || getClass() != obj.getClass()) return false;</span>
+<span class="fc" id="L113">		PokemonMetadata that = (PokemonMetadata) obj;</span>
+
+<span class="pc bpc" id="L115" title="1 of 2 branches missed.">		boolean indexEquals = index == that.index;</span>
+<span class="pc bpc" id="L116" title="1 of 2 branches missed.">		boolean attackEquals = attack == that.attack;</span>
+<span class="pc bpc" id="L117" title="1 of 2 branches missed.">		boolean defenseEquals = defense == that.defense;</span>
+<span class="pc bpc" id="L118" title="1 of 2 branches missed.">		boolean staminaEquals = stamina == that.stamina;</span>
+<span class="fc" id="L119">		boolean nameEquals = Objects.equals(name, that.name);</span>
+
+<span class="pc bpc" id="L121" title="5 of 10 branches missed.">		return indexEquals &amp;&amp;</span>
+				attackEquals &amp;&amp;
+				defenseEquals &amp;&amp;
+				staminaEquals &amp;&amp;
+				nameEquals;
+	}
+
+	/**
+	 * Returns the hash code value for this PokemonMetadata.
+	 * This hash code is used for storing and retrieving PokemonMetadata
+	 * in a hash-based data structure.
+	 *
+	 * @return The hash code value for this PokemonMetadata.
+	 */
+	@Override
+	public int hashCode() {
+<span class="fc" id="L137">		return Objects.hash(index, name, attack, defense, stamina);</span>
 	}
 
 }

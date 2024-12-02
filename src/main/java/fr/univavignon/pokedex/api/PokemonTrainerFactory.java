@@ -15,18 +15,18 @@ public class PokemonTrainerFactory implements IPokemonTrainerFactory {
     /**
      * Pokemon metadata object.
      */
-    private  final  PokemonMetadataObject pokemonMetadataObject;
+    private final IPokemonMetadataProvider pokemonMetadataProvider;
 
     /**
      * @param pokemonFactory Factory to use for creating associated pokedex instance.
-     * @param pokemonMetadataObject Pokemon metadata object.
+     * @param pokemonMetadataProvider Pokemon metadata object.
      * Creates a new pokemon trainer factory using the given
-     * <code>pokemonFactory</code> and <code>pokemonMetadataObject</code>.
+     * <code>pokemonFactory</code> and <code>pokemonMetadataProvider</code>.
      */
     public PokemonTrainerFactory(IPokemonFactory pokemonFactory,
-                                 PokemonMetadataObject pokemonMetadataObject) {
+                                 IPokemonMetadataProvider pokemonMetadataProvider) {
         this.pokemonFactory = pokemonFactory;
-        this.pokemonMetadataObject = pokemonMetadataObject;
+        this.pokemonMetadataProvider = pokemonMetadataProvider;
     }
 
     /**
@@ -41,7 +41,7 @@ public class PokemonTrainerFactory implements IPokemonTrainerFactory {
     public PokemonTrainer createTrainer(String name, Team team,
             IPokedexFactory pokedexFactory) {
         IPokedex pokedex = pokedexFactory
-                .createPokedex(pokemonMetadataObject, pokemonFactory);
+                .createPokedex(pokemonMetadataProvider, pokemonFactory);
 
         return new PokemonTrainer(name, team, pokedex);
     }

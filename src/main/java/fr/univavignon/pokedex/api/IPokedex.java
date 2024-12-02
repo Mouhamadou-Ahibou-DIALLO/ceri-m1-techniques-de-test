@@ -51,5 +51,20 @@ public interface IPokedex extends IPokemonMetadataProvider, IPokemonFactory {
 	 * @return Sorted unmodifiable list of all pokemons.
 	 */
 	List<Pokemon> getPokemons(Comparator<Pokemon> order);
-	
+
+	/**
+	 * Retrieves and returns the IPokemonMetadataProvider associated with this
+	 * IPokemonFactory.
+	 *
+	 * @return Associated IPokemonMetadataProvider.
+	 */
+	IPokemonMetadataProvider getPokemonMetadataProvider();
+
+	/**
+	 * Retrieves and returns the IPokemonFactory associated with this
+	 * IPokedex.
+	 *
+	 * @return Associated IPokemonFactory.
+	 */
+	IPokemonFactory getPokemonFactory();
 }

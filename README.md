@@ -44,14 +44,14 @@ Si vous ne spécifiez pas de tag, le dernier commit à la date-heure de la fin d
 
 ## Badges
 
-**Badge pour CircleCI : [![CircleCI](https://dl.circleci.com/status-badge/img/gh/Ahibou2017/ceri-m1-techniques-de-test/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/Ahibou2017/ceri-m1-techniques-de-test/tree/master)
-**Badge pour CodeCov : [![codecov](https://codecov.io/github/Ahibou2017/ceri-m1-techniques-de-test/graph/badge.svg?token=KIJV7XHK4O)](https://codecov.io/github/Ahibou2017/ceri-m1-techniques-de-test)
+**Badge pour CircleCI : [![CircleCI](https://dl.circleci.com/status-badge/img/gh/Mouhamadou-Ahibou-DIALLO/ceri-m1-techniques-de-test/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/Mouhamadou-Ahibou-DIALLO/ceri-m1-techniques-de-test/tree/master)
+**Badge pour CodeCov : [![codecov](https://codecov.io/github/Mouhamadou-Ahibou-DIALLO/ceri-m1-techniques-de-test/graph/badge.svg?token=KIJV7XHK4O)](https://codecov.io/github/Mouhamadou-Ahibou-DIALLO/ceri-m1-techniques-de-test)
 **Badge pour Codacy après intégration de checkstyle : [![Codacy Badge](https://app.codacy.com/project/badge/Grade/5d2d947729c84a80a6afad5716c8261e)](https://app.codacy.com/gh/Mouhamadou-Ahibou-DIALLO/ceri-m1-techniques-de-test/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 
 ## Choix techniques
 
-Pour ce projet, nous avons utilisé **JUnit** pour les tests unitaires et **Mockito** pour simuler les dépendances. 
-Nous avons intégré **CircleCI** pour l'intégration continue et **JaCoCo** pour mesurer la couverture de test, 
-avec publication des résultats sur **Codecov**. AInsi que **Checkstyle** pour mesurer la qualité du code.
+Pour ce projet, j'ai utilisé **JUnit** pour les tests unitaires et **Mockito** pour simuler les dépendances. 
+En plus j'ai intégré **CircleCI** pour l'intégration continue et **JaCoCo** pour mesurer la couverture de test, 
+avec publication des résultats sur **Codecov**. Ainsi j'ai aussi utilisé que **Checkstyle** pour mesurer la qualité du code.
 

@@ -19,23 +19,27 @@ public class Pokedex implements IPokedex {
      * Creates a new pokedex instance using the given
      * <code>metadataProvider</code> and <code>pokemonFactory</code>.
      */
-    private final PokemonMetadataObject pokemonMetadataObject;
+    private final IPokemonMetadataProvider pokemonMetadataProvider;
+
+    /** Number of pokemon in this pokedex. */
+    private static int SIZE = 0;
 
     /**
      * Creates a new pokedex instance using the given
      * <code>metadataProvider</code> and <code>pokemonFactory</code>.
      */
-    private final PokemonFactory pokemonFactory;
+    private final IPokemonFactory pokemonFactory;
 
     /**
      * Creates a new pokedex instance using the given
      * <code>pokemonMetadataProvider</code> and <code>pokemonFactory</code>.
      *
-     * @param pokemonMetadataObject Metadata provider the created pokedex will use.
+     * @param pokemonMetadataProvider Metadata provider the created pokedex will use.
      * @param pokemonFactory Pokemon factory the created pokedex will use.
      */
-    public Pokedex(PokemonMetadataObject pokemonMetadataObject, PokemonFactory pokemonFactory) {
-        this.pokemonMetadataObject = pokemonMetadataObject;
+    public Pokedex(IPokemonMetadataProvider pokemonMetadataProvider,
+                   IPokemonFactory pokemonFactory) {
+        this.pokemonMetadataProvider = pokemonMetadataProvider;
         this.pokemonFactory = pokemonFactory;
     }
 
@@ -46,7 +50,7 @@ public class Pokedex implements IPokedex {
      */
     @Override
     public int size() {
-        return pokemons.size();
+        return SIZE;
     }
 
     /**
@@ -59,6 +63,8 @@ public class Pokedex implements IPokedex {
     @Override
     public int addPokemon(Pokemon pokemon) {
         pokemons.add(pokemon);
+        System.out.println(pokemons.size() + " ::: size");
+        SIZE++;
         return pokemon.getIndex();
     }
 
@@ -72,12 +78,11 @@ public class Pokedex implements IPokedex {
     @Override
     public Pokemon getPokemon(int id) throws PokedexException {
         for (Pokemon pokemon : pokemons) {
-            if (pokemon.getIndex() < 0 || pokemon.getIndex() > id) {
-                throw new PokedexException("Index invalid");
+            if (pokemon.getIndex() == id) {
+                return pokemon;
             }
-            return pokemon;
         }
-        return null;
+        throw new PokedexException("Pokemon not found with id: " + id);
     }
 
     /**
@@ -120,6 +125,28 @@ public class Pokedex implements IPokedex {
     }
 
     /**
+     * Retrieves and returns the metadata provider associated with this
+     * pokedex instance.
+     *
+     * @return Metadata provider associated with this pokedex instance.
+     */
+    @Override
+    public IPokemonMetadataProvider getPokemonMetadataProvider() {
+        return pokemonMetadataProvider;
+    }
+
+    /**
+     * Retrieves and returns the factory instance associated with this
+     * pokedex instance and used for creating pokemon instances.
+     *
+     * @return Factory instance associated with this pokedex instance.
+     */
+    @Override
+    public IPokemonFactory getPokemonFactory() {
+        return pokemonFactory;
+    }
+
+    /**
      * Retrieves and returns the metadata for the pokemon denoted by the given
      * <code>index</code>.
      *
@@ -129,6 +156,6 @@ public class Pokedex implements IPokedex {
      */
     @Override
     public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
-        return pokemonMetadataObject.getPokemonMetadata(index);
+        return pokemonMetadataProvider.getPokemonMetadata(index);
     }
 }
