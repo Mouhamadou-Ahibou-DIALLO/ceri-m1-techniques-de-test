@@ -1,14 +1,10 @@
-package fr.univavignon.pokedex.imp;
+package fr.univavignon.pokedex.api;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-import fr.univavignon.pokedex.api.IPokemonMetadataProvider;
 import org.apache.commons.collections4.map.UnmodifiableMap;
-
-import fr.univavignon.pokedex.api.IPokemonFactory;
-import fr.univavignon.pokedex.api.Pokemon;
 
 public class RocketPokemonFactory implements IPokemonFactory {
 	
@@ -34,7 +30,8 @@ public class RocketPokemonFactory implements IPokemonFactory {
 	}
 
 	@Override
-	public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
+	public Pokemon createPokemon(int index, int cp, int hp,
+								 int dust, int candy) {
 		String name;
 		if(!index2name.containsKey(index)) {
 			name = index2name.get(0);
@@ -56,6 +53,7 @@ public class RocketPokemonFactory implements IPokemonFactory {
 			stamina = RocketPokemonFactory.generateRandomStat();
 			iv = 1;
 		}
-		return new Pokemon(index, name, attack, defense, stamina, cp, hp, dust, candy, iv);
+		return new Pokemon(index, name, attack, defense,
+				stamina, cp, hp, dust, candy, iv);
 	}
 }
