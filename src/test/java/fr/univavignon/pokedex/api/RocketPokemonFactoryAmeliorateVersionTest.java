@@ -1,6 +1,6 @@
 package fr.univavignon.pokedex.api;
 
-import fr.univavignon.pokedex.api.Pokemon;
+import fr.univavignon.pokedex.imp.RocketPokemonFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
