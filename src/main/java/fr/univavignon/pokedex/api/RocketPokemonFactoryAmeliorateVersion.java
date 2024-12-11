@@ -49,6 +49,8 @@ public class RocketPokemonFactoryAmeliorateVersion
 
     /**
      * Generates a random Pokémon stat between 0 and MAX_RANDOM_STAT (inclusive).
+     *
+     * @return The generated random stat.
      */
     private static int generateRandomStat() {
         return RANDOM.nextInt(MAX_RANDOM_STAT + 1);

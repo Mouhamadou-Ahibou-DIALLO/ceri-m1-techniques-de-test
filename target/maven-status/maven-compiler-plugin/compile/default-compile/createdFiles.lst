@@ -11,6 +11,7 @@ fr/univavignon/pokedex/api/Team.class
 fr/univavignon/pokedex/api/PokemonTrainerFactory.class
 fr/univavignon/pokedex/api/IPokemonMetadataProvider.class
 fr/univavignon/pokedex/api/IPokedex.class
+fr/univavignon/pokedex/api/RocketPokemonFactoryAmeliorateVersion.class
 fr/univavignon/pokedex/api/Pokemon.class
 fr/univavignon/pokedex/api/IPokedexFactory.class
 fr/univavignon/pokedex/api/PokemonFactory.class

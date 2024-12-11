@@ -1,10 +1,9 @@
-#Mon Dec 02 09:33:12 CET 2024
+#Wed Dec 11 09:30:20 CET 2024
 /home/ahibou/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/IPokedex.java=1731741385412
 /home/ahibou/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/IPokedexFactory.java=1730339302086
 /home/ahibou/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/IPokemonFactory.java=1731741302130
 /home/ahibou/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/IPokemonMetadataProvider.java=1730339092947
 /home/ahibou/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/IPokemonTrainerFactory.java=1727769348398
-/home/ahibou/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/MainTest.java=1731742288850
 /home/ahibou/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/Pokedex.java=1731742288822
 /home/ahibou/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/PokedexException.java=1727769348398
 /home/ahibou/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/PokedexFactory.java=1731750183336
@@ -15,5 +14,6 @@
 /home/ahibou/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/PokemonMetadataProvider.java=1731490004717
 /home/ahibou/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/PokemonTrainer.java=1730340424990
 /home/ahibou/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/PokemonTrainerFactory.java=1731736434260
+/home/ahibou/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/RocketPokemonFactoryAmeliorateVersion.java=1733905548866
 /home/ahibou/IdeaProjects/ceri-m1-techniques-de-test/src/main/java/fr/univavignon/pokedex/api/Team.java=1730340671063
 configuration*?=29F7778C5EE53D15460DC8D37611E39D7E667035

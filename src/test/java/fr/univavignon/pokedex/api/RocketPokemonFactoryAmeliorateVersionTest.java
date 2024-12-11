@@ -1,6 +1,5 @@
 package fr.univavignon.pokedex.api;
 
-import fr.univavignon.pokedex.imp.RocketPokemonFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,11 +10,11 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class RocketPokemonFactoryAmeliorateVersionTest {
 
-    private RocketPokemonFactory rocketPokemonFactory;
+    private RocketPokemonFactoryAmeliorateVersion rocketPokemonFactory;
 
     @BeforeEach
     public void setup() {
-        rocketPokemonFactory = new RocketPokemonFactory();
+        rocketPokemonFactory = new RocketPokemonFactoryAmeliorateVersion();
     }
 
     @Test

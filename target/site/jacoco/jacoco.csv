@@ -5,6 +5,7 @@ Principe_De_Test,fr.univavignon.pokedex.api,PokedexException,0,4,0,0,0,2,0,1,0,1
 Principe_De_Test,fr.univavignon.pokedex.api,PokemonMetadataProvider,0,30,0,4,0,7,0,5,0,3
 Principe_De_Test,fr.univavignon.pokedex.api,Pokedex,0,92,0,4,0,22,0,13,0,11
 Principe_De_Test,fr.univavignon.pokedex.api,PokemonMetadata,5,146,10,14,0,23,10,11,0,9
+Principe_De_Test,fr.univavignon.pokedex.api,RocketPokemonFactoryAmeliorateVersion,0,98,0,2,0,21,0,7,0,6
 Principe_De_Test,fr.univavignon.pokedex.api,PokemonTrainerFactory,0,23,0,0,0,7,0,2,0,2
 Principe_De_Test,fr.univavignon.pokedex.api,PokedexFactory,0,9,0,0,0,2,0,2,0,2
 Principe_De_Test,fr.univavignon.pokedex.api,PokemonTrainer,0,31,0,0,0,9,0,5,0,5
